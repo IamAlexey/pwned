@@ -1,0 +1,60 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-app-ing-srvc
+  namespace: myapp
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: arch.homework
+      http:
+        paths:
+          - backend:
+              service:
+                name: my-app-service
+                port:
+                  number: 777
+            pathType: Prefix
+            path: /
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-service
+  namespace: myapp
+spec:
+  type: ClusterIP
+  ports:
+    - port: 777
+      targetPort: 8000
+  selector:
+    app: my-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  namespace: myapp
+  labels:
+    app: my-app
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - image: jcode8/my-app:latest
+          name: my-java-app
+          ports:
+            - containerPort: 8000
