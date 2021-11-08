@@ -28,10 +28,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+            <scope>provided</scope>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -39,26 +46,13 @@
             <scope>test</scope>
         </dependency>
 
-    </dependencies>
-    <!--	<dependencyManagement>-->
-    <!--		<dependencies>-->
-    <!--			<dependency>-->
-    <!--				<groupId>org.springframework.cloud</groupId>-->
-    <!--				<artifactId>spring-cloud-dependencies</artifactId>-->
-    <!--				<version>${spring-cloud.version}</version>-->
-    <!--				<type>pom</type>-->
-    <!--				<scope>import</scope>-->
-    <!--			</dependency>-->
-    <!--			<dependency>-->
-    <!--				<groupId>com.google.cloud</groupId>-->
-    <!--				<artifactId>spring-cloud-gcp-dependencies</artifactId>-->
-    <!--				<version>${spring-cloud-gcp.version}</version>-->
-    <!--				<type>pom</type>-->
-    <!--				<scope>import</scope>-->
-    <!--			</dependency>-->
-    <!--		</dependencies>-->
-    <!--	</dependencyManagement>-->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.4.4</version>
+        </dependency>
 
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>

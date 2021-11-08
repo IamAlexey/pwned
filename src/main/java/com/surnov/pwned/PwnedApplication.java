@@ -8,6 +8,6 @@ public class PwnedApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PwnedApplication.class, args);
-	}
+    }
 
 }

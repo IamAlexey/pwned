@@ -55,6 +55,14 @@ spec:
     spec:
       containers:
         - image: jcode8/my-app:latest
+          imagePullPolicy: Always
           name: my-java-app
+          env:
+            - name: POSTGRES_DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: hello-secret
+                  key: POSTGRES_DB_USERNAME
           ports:
             - containerPort: 8000
+
