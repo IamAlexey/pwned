@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pwned-config
+data:
+  GREETING: 123
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: pwned-secret
+type: Opaque
+data:
+  DB_URI: 123
