@@ -33,6 +33,13 @@ public class UserEndpoint {
         return ResponseEntity.ok(users);
     }
 
+    @PutMapping
+    public ResponseEntity<?> put(UserDTO userDTO) {
+        User user = modelMapper.map(userDTO, User.class);
+        userService.save(user);
+        return ResponseEntity.ok().build();
+    }
+
     @PostMapping
     public ResponseEntity<?> create(UserDTO userDTO) {
         User user = modelMapper.map(userDTO, User.class);
