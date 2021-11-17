@@ -2,7 +2,7 @@
 helm install --namespace myapp pwned ./pwned \
 kubectl port-forward service/pwned 8000:777 \
 http://localhost:8000/swagger-ui/#/user-endpoint \
-http://arch.homework/swagger-ui/#/user-endpoint \
+http://arch.homework/swagger-ui/#/user-endpoint 
 
 ## Useful commands
 kubectl create namespace myapp \
