@@ -1,4 +1,4 @@
-#How to run
+# How to run
 helm install --namespace myapp pwned ./pwned
 kubectl port-forward service/pwned 8000:777
 http://localhost:8000/swagger-ui/#/user-endpoint
