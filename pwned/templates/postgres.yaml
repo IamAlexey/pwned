@@ -36,11 +36,11 @@ spec:
               name: postgredb
           env:
             - name: POSTGRES_DB
-              value: myapp
+              value: mydb
             - name: POSTGRES_USER
-              value: myuser
+              value: hellohello
             - name: POSTGRES_PASSWORD
-              value: passwd
+              value: worldworld
           volumeMounts:
             - name: postgredb
               mountPath: /var/lib/postgresql/data

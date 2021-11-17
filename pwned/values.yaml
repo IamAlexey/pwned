@@ -2,7 +2,7 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
-
+namespace: myapp
 image:
   repository: jcode8/my-app
   pullPolicy: Always
@@ -12,4 +12,3 @@ image:
 service:
   type: ClusterIP
   port: 777
-

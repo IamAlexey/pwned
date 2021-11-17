@@ -24,5 +24,26 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:latest"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: POSTGRES_DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: pwned-config
+                  key: POSTGRES_DB_HOST
+            - name: POSTGRES_DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: pwned-config
+                  key: POSTGRES_DB_PORT
+            - name: POSTGRES_DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: pwned-secret
+                  key: POSTGRES_DB_USERNAME
+            - name: POSTGRES_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pwned-secret
+                  key: POSTGRES_DB_PASSWORD
           ports:
             - containerPort: 8000
