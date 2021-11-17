@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: pwned-config
 data:
-  POSTGRES_DB_HOST: "123"
+  POSTGRES_DB_HOST: "postgres"
   POSTGRES_DB_PORT: "5432"
