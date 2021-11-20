@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/user")
@@ -28,6 +29,10 @@ public class UserEndpoint {
 
     @GetMapping
     public ResponseEntity<Collection<UserDTO>> findAll() {
+        if(new Random().nextBoolean()) {
+            return ResponseEntity.internalServerError().build();
+        }
+
         List<UserDTO> users = modelMapper.map(userService.findAll(), new TypeToken<List<UserDTO>>() {
         }.getType());
         return ResponseEntity.ok(users);
